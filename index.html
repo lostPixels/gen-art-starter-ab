@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>
+        <%= htmlWebpackPlugin.options.title %>
+    </title>
+    <script src="js/p5.js"></script>
+
+    <script>
+        const params = new URLSearchParams(window.location.search)
+        function genTokenData(projectNum) {
+            let data = {};
+            let hash = "0x";
+            for (var i = 0; i < 64; i++) {
+                hash += Math.floor(Math.random() * 16).toString(16);
+            }
+            if (params.get('randomSeedValue')) {
+                data.hash = params.get('randomSeedValue')
+            }
+            else {
+                data.hash = hash;
+            }
+
+            data.tokenId = (projectNum * 1000000 + Math.floor(Math.random() * 1000)).toString();
+            return data;
+        }
+        let tokenData = genTokenData(000);
+    </script>
+
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background: rgb(245, 245, 245);
+            font-family: 'Avenir';
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .btn {
+            all: unset;
+            cursor: pointer;
+            border: 1px solid black;
+            padding: .125rem 1rem;
+        }
+
+        input {
+            padding: .125rem;
+        }
+
+        .ctrl {
+            display: flex;
+            align-items: center;
+            padding: .125rem;
+            margin-bottom: 1rem;
+        }
+
+        .ctrl__group {
+            margin: 0 .25rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ctrl">
+        <div class="ctrl__group">
+            <form action="/" method="GET">
+                <input name="randomSeedValue" id="randomSeedValue1" value="" />
+                <button class="btn" type="submit">Set Seed</button>
+            </form>
+        </div>
+        <div class="ctrl__group">
+            <form action="/" method="GET">
+                <input name="randomSeedValue" id="randomSeedValue" value="" type="hidden" />
+                <button class="btn" type="submit">Use Current</button>
+            </form>
+        </div>
+        <div class="ctrl__group">
+            <a href="/" class="btn">Clear Seed</a>
+        </div>
+    </div>
+
+
+    <script>
+        document.getElementById('randomSeedValue').value = tokenData.hash;
+    </script>
+
+</body>
+
+</html>
