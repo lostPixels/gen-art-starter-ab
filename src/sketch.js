@@ -21,4 +21,6 @@ window.setup = () => {
 window.draw = () => {
     background(255)
     circle(width / 2, height / 2, 400);
+
+    // Start doing cool stuff here 8^)
 }

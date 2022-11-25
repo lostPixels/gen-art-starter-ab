@@ -2,7 +2,7 @@
 ## Introduction
 This repository is contains a few key pieces of functionality for developing generative art for the Artblocks.io platform. The goal of this starter is to encourage rapid iteration, fluid development, and inexpensive deployments to the blockchain.
 
-![alt text](https://github.com/lostPixels/gen-art-starter-ab/blob/master/samples/start.png?raw=true)
+![Sample UI](https://raw.githubusercontent.com/lostPixels/gen-art-starter-ab/main/samples/start.png)
 
 
 ### Seed Management
