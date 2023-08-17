@@ -15,7 +15,7 @@ window.setup = () => {
         console.log(`Random Seed: ${tokenData.hash}`);
     }
 
-    createCanvas(1000, 600);
+    createCanvas(1000, 600); //You can add SVG here like this: createCanvas(1000, 600, SVG);
 }
 
 window.draw = () => {
